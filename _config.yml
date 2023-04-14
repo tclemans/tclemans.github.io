@@ -22,6 +22,7 @@ title: Tim Clemans
 email: tclemans@protonmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Tim Clemans | 👨‍💻 Software Engineer.
+domain: timclemans.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://timclemans.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: tim_clemans
