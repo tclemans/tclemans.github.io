@@ -7,6 +7,6 @@ layout: default
 
 # About
 
-Hi, I'm Tim Clemans. I'm a software engineer with experience in information security, web development, system admintstration and DevOps.
+Hi, I'm Tim Clemans. I'm a software engineer with experience in information security, web development, system administration and DevOps.
 
 I plan to add more to this site soon...
