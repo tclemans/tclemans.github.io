@@ -43,3 +43,24 @@ self.APPS = [
     added: "2026-11-19"
   }
 ];
+
+/*
+ * Bigger projects, shown in their own section above the apps.
+ * Screenshots live in projects/<slug>/. labels are short status chips.
+ * link is optional (for example a public repo or a live demo).
+ */
+self.PROJECTS = [
+  {
+    slug: "riparr",
+    title: "Riparr",
+    icon: "icon.png",
+    labels: ["In progress", "Private"],
+    blurb: "A web app for ripping DVDs and Blu-rays on a home server. It scans a disc as soon as it goes in, names everything for Jellyfin using TMDB, and checks every rip before it reaches the library, so a failed or interrupted rip never leaves a bad file behind. It sends a notification to your phone when a rip finishes.",
+    stack: "Python, Flask, SQLite, MakeMKV, Docker",
+    shots: [
+      { src: "library-desktop.webp", w: 1600, h: 1000, alt: "Riparr library page on a desktop, listing ripped movies" },
+      { src: "tabbar-phone.webp", w: 780, h: 1308, alt: "Riparr on a phone in dark mode, choosing the main feature on a Blu-ray" },
+      { src: "library-episodes-phone.webp", w: 780, h: 1328, alt: "Riparr library on a phone, showing TV seasons and episodes" }
+    ]
+  }
+];

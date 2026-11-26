@@ -1,12 +1,14 @@
 /* Offline support: caches the site on first visit, then serves from cache and refreshes in the background. */
-const CACHE_VERSION = 'v5';
+const CACHE_VERSION = 'v6';
 const CACHE = 'site-' + CACHE_VERSION;
 importScripts('apps.js');
 
 const CORE = ['./', 'index.html', 'apps.js', 'assets/site.css', 'assets/offline.js', 'assets/favicon.svg',
   'assets/fonts/fonts.css', 'assets/fonts/baloo2.woff2', 'assets/fonts/fredoka.woff2'];
 const APP_FILES = self.APPS.flatMap(a => ['apps/' + a.slug + '/', 'apps/' + a.slug + '/index.html']
-  .concat(a.icon ? ['apps/' + a.slug + '/' + a.icon] : []));
+  .concat(a.icon ? ['apps/' + a.slug + '/' + a.icon] : []))
+  .concat((self.PROJECTS || []).flatMap(p => (p.icon ? [p.icon] : []).concat((p.shots || []).map(s => s.src))
+    .map(f => 'projects/' + p.slug + '/' + f)));
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => Promise.all(CORE.concat(APP_FILES).map(u => c.add(u).catch(() => {})))));

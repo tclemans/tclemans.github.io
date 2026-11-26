@@ -10,6 +10,7 @@ apps.js             the list of apps shown on the home page
 sw.js               offline cache
 assets/             shared CSS, favicon, self-hosted fonts, offline.js
 apps/<slug>/        one folder per app, each with its own index.html
+projects/<slug>/    screenshots and icon for a project in the Projects section
 skyjo/ dino/ kitten/  short links that redirect to the full app paths
 ```
 
@@ -26,6 +27,10 @@ skyjo/ dino/ kitten/  short links that redirect to the full app paths
 5. Commit and push to `main`. GitHub Pages publishes it within a minute or two.
 
 To preview locally: `python3 -m http.server` in this folder, then open http://localhost:8000.
+
+## Add a project
+
+Projects are bigger things that don't run on this site (like Riparr). Put an icon and a few screenshots (WebP, about 1600px wide for desktop and 780px for phone) in `projects/<slug>/`, then add an entry to `PROJECTS` at the bottom of `apps.js` with its labels, a short description, and each screenshot's size. Add `link` if there's a public repo or demo.
 
 ## Custom domain
 

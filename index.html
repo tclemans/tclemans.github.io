@@ -16,6 +16,7 @@
     <p>Hi, I'm Tim Clemans. I'm a software engineer with experience in information security, web development, system administration and DevOps.</p>
   </header>
   <main>
+    <div id="projects"></div>
     <h2 class="section">Apps and tools</h2>
     <p class="intro">Here are some apps and tools I've made. They're free, there's nothing to sign up for, and once you've opened one it keeps working without internet.</p>
     <div id="apps"></div>
@@ -43,6 +44,22 @@
     return '<section class="cat" id="' + esc(c.id) + '"><h3>' + esc(c.title) + '</h3>' + (c.blurb ? '<p class="cat-blurb">' + esc(c.blurb) + '</p>' : '') +
       '<ul class="grid">' + items.map(card).join('') + '</ul></section>';
   }).join('');
+
+  var projects = self.PROJECTS || [];
+  if (projects.length) document.getElementById('projects').innerHTML =
+    '<h2 class="section">Projects</h2><p class="intro">Bigger things I\'m building.</p>' +
+    projects.map(function (p) {
+      var dir = 'projects/' + p.slug + '/';
+      var labels = (p.labels || []).map(function (l) { return '<span class="chip">' + esc(l) + '</span>'; }).join('');
+      var shots = (p.shots || []).map(function (s) {
+        return '<a class="' + (s.w > s.h ? 'wide' : 'tall') + '" href="' + dir + esc(s.src) + '" target="_blank" rel="noopener"><img src="' + dir + esc(s.src) + '" width="' + s.w + '" height="' + s.h + '" alt="' + esc(s.alt) + '" loading="lazy"></a>';
+      }).join('');
+      return '<article class="project" id="' + esc(p.slug) + '"><div class="phead">' +
+        (p.icon ? '<img class="picon" src="' + dir + esc(p.icon) + '" alt="">' : '') +
+        '<div><h3>' + (p.link ? '<a href="' + esc(p.link) + '">' + esc(p.title) + '</a>' : esc(p.title)) + '</h3><div class="chips">' + labels + '</div></div></div>' +
+        '<p>' + esc(p.blurb) + '</p>' + (p.stack ? '<p class="stack">' + esc(p.stack) + '</p>' : '') +
+        (shots ? '<div class="shots">' + shots + '</div>' : '') + '</article>';
+    }).join('');
 })();
 </script>
 <script src="assets/offline.js"></script>
