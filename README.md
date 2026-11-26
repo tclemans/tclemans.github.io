@@ -20,7 +20,7 @@ skyjo/ dino/ kitten/  short links that redirect to the full app paths
    - For the Baloo 2 or Fredoka fonts, link `../../assets/fonts/fonts.css` instead of Google Fonts.
    - Add `<script src="../../assets/offline.js"></script>` before `</body>` so it works offline.
    - Optional: an `icon.svg` in the same folder and a link back to `../../`.
-2. Add an entry to `apps.js`.
+2. Add an entry to `apps.js` with a `category` (`tools` or `games`). To start a new section, add it to `CATEGORIES` in the same file.
 3. Bump `CACHE_VERSION` in `sw.js`.
 4. Optional short link: copy `skyjo/index.html` to `<short>/index.html` and change the three paths and the title.
 5. Commit and push to `main`. GitHub Pages publishes it within a minute or two.

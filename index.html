@@ -18,7 +18,7 @@
   <main>
     <h2 class="section">Apps and tools</h2>
     <p class="intro">Here are some apps and tools I've made. They're free, there's nothing to sign up for, and once you've opened one it keeps working without internet.</p>
-    <ul class="grid" id="apps"></ul>
+    <div id="apps"></div>
     <noscript><p>Turn on JavaScript to see the list of games and tools.</p></noscript>
   </main>
   <footer>
@@ -29,15 +29,19 @@
 <script src="apps.js"></script>
 <script>
 (function () {
-  var list = document.getElementById('apps');
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
-  list.innerHTML = (self.APPS || []).map(function (a) {
+  var apps = self.APPS || [], cats = (self.CATEGORIES || []).slice();
+  apps.forEach(function (a) { if (!cats.some(function (c) { return c.id === a.category; })) cats.push({ id: a.category, title: a.category || 'Other' }); });
+  var card = function (a) {
     var href = 'apps/' + a.slug + '/';
     var img = a.icon ? '<img src="' + href + esc(a.icon) + '" alt="">' : '<span class="ph"></span>';
-    var kind = a.kind || 'Game';
-    return '<li><a class="card" href="' + href + '">' + img + '<div>' +
-      '<span class="tag' + (kind.toLowerCase() === 'tool' ? ' tool' : '') + '">' + esc(kind) + '</span>' +
-      '<h2>' + esc(a.title) + '</h2><p>' + esc(a.blurb) + '</p></div></a></li>';
+    return '<li><a class="card" href="' + href + '">' + img + '<div><h4>' + esc(a.title) + '</h4><p>' + esc(a.blurb) + '</p></div></a></li>';
+  };
+  document.getElementById('apps').innerHTML = cats.map(function (c) {
+    var items = apps.filter(function (a) { return a.category === c.id; });
+    if (!items.length) return '';
+    return '<section class="cat" id="' + esc(c.id) + '"><h3>' + esc(c.title) + '</h3>' + (c.blurb ? '<p class="cat-blurb">' + esc(c.blurb) + '</p>' : '') +
+      '<ul class="grid">' + items.map(card).join('') + '</ul></section>';
   }).join('');
 })();
 </script>
