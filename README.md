@@ -12,7 +12,6 @@ sw.js               offline cache
 assets/             shared CSS, favicon, self-hosted fonts, offline.js
 apps/<slug>/        one folder per app, each with its own index.html
 skyjo/ dino/ kitten/  short links that redirect to the full app paths
-CNAME               custom domain (timclemans.com)
 ```
 
 ## Add a new app or game
@@ -31,7 +30,7 @@ To preview locally: `python3 -m http.server` in this folder, then open http://lo
 
 ## Custom domain
 
-The site is served at timclemans.com via the `CNAME` file. DNS (in Cloudflare) needs:
+The site is served at tclemans.github.io for now. To switch to timclemans.com, set these DNS records in Cloudflare first:
 
 | Type | Name | Content |
 |------|------|---------|
@@ -45,4 +44,4 @@ The site is served at timclemans.com via the `CNAME` file. DNS (in Cloudflare) n
 | AAAA | @ | 2606:50c0:8003::153 |
 | CNAME | www | tclemans.github.io |
 
-Set them to "DNS only" (grey cloud) so GitHub can issue the HTTPS certificate, then turn on Enforce HTTPS under Settings → Pages. To move to another domain, change the one line in `CNAME`. All links in the site are relative.
+Set them to "DNS only" (grey cloud). Once they're in place, add a file named `CNAME` at the root containing just `timclemans.com` (or enter the domain under Settings → Pages), wait for the HTTPS certificate, then turn on Enforce HTTPS. Add the CNAME only after DNS is set: until then it would send github.io visitors to a domain that doesn't resolve. All links in the site are relative, so nothing else changes.
