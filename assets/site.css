@@ -6,7 +6,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 system-ui,-app
 a{color:var(--accent)}
 .wrap{max-width:960px;margin:0 auto;padding:48px 16px 32px}
 header h1{font:800 clamp(34px,6vw,48px)/1.05 "Baloo 2",system-ui,sans-serif;margin:0 0 8px;letter-spacing:-.5px}
-header p{margin:0;color:var(--muted);max-width:36em}
+header p{margin:0;max-width:36em;font-size:19px}
 .grid{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
 .card{display:flex;gap:14px;align-items:flex-start;height:100%;padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line);color:inherit;text-decoration:none;transition:transform .15s,box-shadow .15s,border-color .15s}
 .card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08);border-color:var(--accent)}
@@ -17,9 +17,6 @@ header p{margin:0;color:var(--muted);max-width:36em}
 .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;border-radius:999px;padding:1px 8px;background:var(--tag-game);color:var(--tag-game-ink)}
 .tag.tool{background:var(--tag-tool);color:var(--tag-tool-ink)}
 footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:8px 20px}
-header{position:relative}
-nav{position:absolute;top:6px;right:0;font-size:15px;font-weight:600}
-nav a{text-decoration:none}nav a:hover{text-decoration:underline}
-.about{max-width:36em;margin-top:28px}
-.about p{margin:0 0 14px}
-.back{display:inline-block;margin-bottom:24px;font-size:15px;font-weight:600;text-decoration:none}
+.section{font:800 26px/1.1 "Baloo 2",system-ui,sans-serif;margin:56px 0 6px}
+.intro{margin:0;color:var(--muted);max-width:36em}
+.grid{margin-top:20px}
