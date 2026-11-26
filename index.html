@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tim Clemans</title>
+<meta name="description" content="Little games and tools by Tim Clemans. Free, no sign-up, and they work offline.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Tim Clemans</h1>
+    <p>Hi, I'm Tim Clemans. I'm a software engineer with experience in information security, web development, system administration and DevOps.</p>
+  </header>
+  <main>
+    <h2 class="section">Apps and tools</h2>
+    <p class="intro">Here are some apps and tools I've made. They're free, there's nothing to sign up for, and once you've opened one it keeps working without internet.</p>
+    <div id="apps"></div>
+    <noscript><p>Turn on JavaScript to see the list of games and tools.</p></noscript>
+  </main>
+  <footer>
+    <a href="https://github.com/tclemans">GitHub</a>
+    <span>Made with help from Claude</span>
+  </footer>
+</div>
+<script src="apps.js"></script>
+<script>
+(function () {
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  var apps = self.APPS || [], cats = (self.CATEGORIES || []).slice();
+  apps.forEach(function (a) { if (!cats.some(function (c) { return c.id === a.category; })) cats.push({ id: a.category, title: a.category || 'Other' }); });
+  var card = function (a) {
+    var href = 'apps/' + a.slug + '/';
+    var img = a.icon ? '<img src="' + href + esc(a.icon) + '" alt="">' : '<span class="ph"></span>';
+    return '<li><a class="card" href="' + href + '">' + img + '<div><h4>' + esc(a.title) + '</h4><p>' + esc(a.blurb) + '</p></div></a></li>';
+  };
+  document.getElementById('apps').innerHTML = cats.map(function (c) {
+    var items = apps.filter(function (a) { return a.category === c.id; });
+    if (!items.length) return '';
+    return '<section class="cat" id="' + esc(c.id) + '"><h3>' + esc(c.title) + '</h3>' + (c.blurb ? '<p class="cat-blurb">' + esc(c.blurb) + '</p>' : '') +
+      '<ul class="grid">' + items.map(card).join('') + '</ul></section>';
+  }).join('');
+})();
+</script>
+<script src="assets/offline.js"></script>
+</body>
+</html>
