@@ -17,3 +17,9 @@ header p{margin:0;color:var(--muted);max-width:36em}
 .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;border-radius:999px;padding:1px 8px;background:var(--tag-game);color:var(--tag-game-ink)}
 .tag.tool{background:var(--tag-tool);color:var(--tag-tool-ink)}
 footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:8px 20px}
+header{position:relative}
+nav{position:absolute;top:6px;right:0;font-size:15px;font-weight:600}
+nav a{text-decoration:none}nav a:hover{text-decoration:underline}
+.about{max-width:36em;margin-top:28px}
+.about p{margin:0 0 14px}
+.back{display:inline-block;margin-bottom:24px;font-size:15px;font-weight:600;text-decoration:none}

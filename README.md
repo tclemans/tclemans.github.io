@@ -6,6 +6,7 @@ A public, no-login home for small games and tools. Everything is plain static HT
 
 ```
 index.html          home page (renders the list from apps.js)
+about/              about page
 apps.js             the list of apps shown on the home page
 sw.js               offline cache
 assets/             shared CSS, favicon, self-hosted fonts, offline.js

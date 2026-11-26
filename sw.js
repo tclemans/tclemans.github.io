@@ -1,9 +1,9 @@
 /* Offline support: caches the site on first visit, then serves from cache and refreshes in the background. */
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const CACHE = 'site-' + CACHE_VERSION;
 importScripts('apps.js');
 
-const CORE = ['./', 'index.html', 'apps.js', 'assets/site.css', 'assets/offline.js', 'assets/favicon.svg',
+const CORE = ['./', 'index.html', 'about/', 'apps.js', 'assets/site.css', 'assets/offline.js', 'assets/favicon.svg',
   'assets/fonts/fonts.css', 'assets/fonts/baloo2.woff2', 'assets/fonts/fredoka.woff2'];
 const APP_FILES = self.APPS.flatMap(a => ['apps/' + a.slug + '/', 'apps/' + a.slug + '/index.html']
   .concat(a.icon ? ['apps/' + a.slug + '/' + a.icon] : []));
