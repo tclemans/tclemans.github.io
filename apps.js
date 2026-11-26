@@ -11,6 +11,14 @@
  */
 self.APPS = [
   {
+    slug: "skyjo-scorekeeper",
+    title: "Skyjo Scorekeeper",
+    blurb: "Keeps score for two-player Skyjo, including the doubling penalty. Saves as you go.",
+    kind: "Tool",
+    icon: "icon.svg",
+    added: "2026-11-26"
+  },
+  {
     slug: "dino-truck-smash",
     title: "Dino Truck Smash",
     blurb: "A toddler-proof monster truck driven by a dinosaur. Tap to jump, squash cars, pop balloons.",

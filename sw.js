@@ -1,5 +1,5 @@
 /* Offline support: caches the site on first visit, then serves from cache and refreshes in the background. */
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CACHE = 'site-' + CACHE_VERSION;
 importScripts('apps.js');
 
