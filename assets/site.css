@@ -1,0 +1,19 @@
+:root{--bg:#f6f4ef;--card:#fff;--ink:#1d1b18;--muted:#6b665d;--line:#e4dfd5;--accent:#1f6feb;--tag-game:#fde7c8;--tag-game-ink:#8a4b00;--tag-tool:#d7ebff;--tag-tool-ink:#0b4a8f;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15161a;--card:#1f2127;--ink:#eeece8;--muted:#a3a09a;--line:#2e3038;--accent:#6ea8ff;--tag-game:#4a3416;--tag-game-ink:#ffd59a;--tag-tool:#16314f;--tag-tool-ink:#b9dbff}}
+:root[data-theme="dark"]{--bg:#15161a;--card:#1f2127;--ink:#eeece8;--muted:#a3a09a;--line:#2e3038;--accent:#6ea8ff;--tag-game:#4a3416;--tag-game-ink:#ffd59a;--tag-tool:#16314f;--tag-tool-ink:#b9dbff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent)}
+.wrap{max-width:960px;margin:0 auto;padding:48px 16px 32px}
+header h1{font:800 clamp(34px,6vw,48px)/1.05 "Baloo 2",system-ui,sans-serif;margin:0 0 8px;letter-spacing:-.5px}
+header p{margin:0;color:var(--muted);max-width:36em}
+.grid{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{display:flex;gap:14px;align-items:flex-start;height:100%;padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line);color:inherit;text-decoration:none;transition:transform .15s,box-shadow .15s,border-color .15s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08);border-color:var(--accent)}
+.card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.card img,.card .ph{width:64px;height:64px;border-radius:14px;flex:none;background:var(--line)}
+.card h2{margin:0 0 2px;font-size:18px;line-height:1.25}
+.card p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;border-radius:999px;padding:1px 8px;background:var(--tag-game);color:var(--tag-game-ink)}
+.tag.tool{background:var(--tag-tool);color:var(--tag-tool-ink)}
+footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:8px 20px}

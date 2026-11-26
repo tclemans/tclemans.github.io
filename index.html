@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tim Clemans</title>
+<meta name="description" content="Little games and tools by Tim Clemans. Free, no sign-up, and they work offline.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Tim Clemans</h1>
+    <p>Software engineer. These are little games and tools I've made. They're free, there's nothing to sign up for, and once you've opened one it keeps working without internet.</p>
+  </header>
+  <main>
+    <ul class="grid" id="apps"></ul>
+    <noscript><p>Turn on JavaScript to see the list of games and tools.</p></noscript>
+  </main>
+  <footer>
+    <a href="https://github.com/tclemans">GitHub</a>
+    <span>Made with help from Claude</span>
+  </footer>
+</div>
+<script src="apps.js"></script>
+<script>
+(function () {
+  var list = document.getElementById('apps');
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); };
+  list.innerHTML = (self.APPS || []).map(function (a) {
+    var href = 'apps/' + a.slug + '/';
+    var img = a.icon ? '<img src="' + href + esc(a.icon) + '" alt="">' : '<span class="ph"></span>';
+    var kind = a.kind || 'Game';
+    return '<li><a class="card" href="' + href + '">' + img + '<div>' +
+      '<span class="tag' + (kind.toLowerCase() === 'tool' ? ' tool' : '') + '">' + esc(kind) + '</span>' +
+      '<h2>' + esc(a.title) + '</h2><p>' + esc(a.blurb) + '</p></div></a></li>';
+  }).join('');
+})();
+</script>
+<script src="assets/offline.js"></script>
+</body>
+</html>
