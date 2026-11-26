@@ -11,6 +11,8 @@ apps.js             the list of apps shown on the home page
 sw.js               offline cache
 assets/             shared CSS, favicon, self-hosted fonts, offline.js
 apps/<slug>/        one folder per app, each with its own index.html
+skyjo/ dino/ kitten/  short links that redirect to the full app paths
+CNAME               custom domain (timclemans.com)
 ```
 
 ## Add a new app or game
@@ -22,10 +24,25 @@ apps/<slug>/        one folder per app, each with its own index.html
    - Optional: an `icon.svg` in the same folder and a link back to `../../`.
 2. Add an entry to `apps.js`.
 3. Bump `CACHE_VERSION` in `sw.js`.
-4. Commit and push to `main`. GitHub Pages publishes it within a minute or two.
+4. Optional short link: copy `skyjo/index.html` to `<short>/index.html` and change the three paths and the title.
+5. Commit and push to `main`. GitHub Pages publishes it within a minute or two.
 
 To preview locally: `python3 -m http.server` in this folder, then open http://localhost:8000.
 
 ## Custom domain
 
-To move to a custom domain later, add a file named `CNAME` at the root containing just the domain (for example `example.dev`), set the domain under Settings → Pages, and point DNS at GitHub Pages. All links in the site are relative, so nothing else needs to change.
+The site is served at timclemans.com via the `CNAME` file. DNS (in Cloudflare) needs:
+
+| Type | Name | Content |
+|------|------|---------|
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| AAAA | @ | 2606:50c0:8000::153 |
+| AAAA | @ | 2606:50c0:8001::153 |
+| AAAA | @ | 2606:50c0:8002::153 |
+| AAAA | @ | 2606:50c0:8003::153 |
+| CNAME | www | tclemans.github.io |
+
+Set them to "DNS only" (grey cloud) so GitHub can issue the HTTPS certificate, then turn on Enforce HTTPS under Settings → Pages. To move to another domain, change the one line in `CNAME`. All links in the site are relative.
