@@ -20,3 +20,16 @@ footer{margin-top:48px;padding-top:16px;border-top:1px solid var(--line);color:v
 .cat{margin-top:32px}
 .cat h3{margin:0;font-size:20px;line-height:1.2}
 .cat-blurb{margin:2px 0 0;color:var(--muted);font-size:15px}
+.project{margin-top:20px;padding:20px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.phead{display:flex;gap:14px;align-items:center}
+.picon{width:56px;height:56px;border-radius:13px;flex:none}
+.project h3{margin:0;font-size:22px;line-height:1.2}
+.project h3 a{color:inherit}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{font-size:12px;font-weight:700;letter-spacing:.02em;border-radius:999px;padding:2px 9px;background:var(--bg);border:1px solid var(--line);color:var(--muted)}
+.project>p{margin:14px 0 0;max-width:42em}
+.project .stack{margin-top:6px;color:var(--muted);font-size:14px}
+.shots{display:flex;gap:12px;margin:18px -20px -20px;padding:0 20px 20px;overflow-x:auto;scroll-snap-type:x mandatory}
+.shots a{flex:none;scroll-snap-align:start;border-radius:10px;overflow:hidden;border:1px solid var(--line);line-height:0}
+.shots img{height:300px;width:auto;display:block}
+@media (max-width:600px){.shots img{height:230px}.shots a.wide{order:2}}
